@@ -29,14 +29,14 @@ internal fun App() {
     return AppTheme {
         Scaffold(
             bottomBar = {
-                BottomNavigation(backgroundColor = MaterialTheme.colorScheme.background) {
+                BottomNavigation(backgroundColor = MaterialTheme.colorScheme.surface) {
                     ScreenGraph.entries.forEach { screen ->
                         BottomNavigationItem(
                             icon = { Icon(getIconForScreen(screen), contentDescription = screen.name) },
                             label = { Text(screen.name) },
                             selected = screen == selectedScreen,
                             onClick = { selectedScreen = screen },
-                            modifier = Modifier.padding(8.dp)
+                            modifier = Modifier.padding(4.dp)
                         )
                     }
                 }
