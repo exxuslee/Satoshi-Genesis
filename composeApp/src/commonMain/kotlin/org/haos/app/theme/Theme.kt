@@ -1,11 +1,16 @@
 package org.haos.app.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material.Colors
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.*
+import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
 
 private val LightColorScheme = lightColorScheme(
     primary = md_theme_light_primary,
@@ -73,6 +78,42 @@ private val DarkColorScheme = darkColorScheme(
 
 internal val LocalThemeIsDark = compositionLocalOf { mutableStateOf(true) }
 
+val lightPalette = AppColors(
+    jacob = BlueL,
+    remus = GreenL,
+    lucian = RedL,
+    tyler = Light,
+    bran = Dark,
+    leah = SteelDark,
+    claude = Color.White,
+    lawrence = Color.White,
+    jeremy = SteelLight,
+    laguna = LagunaL,
+    purple = PurpleL,
+    raina = White50,
+    andy = Steel20,
+    exchange_leah = Steel30,
+    oz = Dark,
+)
+
+val darkPalette = AppColors(
+    jacob = BlueD,
+    remus = GreenD,
+    lucian = RedD,
+    tyler = Dark,
+    bran = LightGrey,
+    leah = SteelLight,
+    claude = Dark,
+    lawrence = SteelDark,
+    jeremy = Steel20,
+    laguna = LagunaD,
+    purple = PurpleD,
+    raina = Steel10,
+    andy = Black50,
+    exchange_leah = Grey50,
+    oz = Light,
+)
+
 @Composable
 internal fun AppTheme(
     content: @Composable() () -> Unit
@@ -84,12 +125,44 @@ internal fun AppTheme(
     ) {
         val isDark by isDarkState
         SystemAppearance(!isDark)
-        MaterialTheme(
-            colorScheme = if (isDark) DarkColorScheme else LightColorScheme,
-            content = { Surface(content = content) }
-        )
+        val colors = if (isDark) darkPalette else lightPalette
+
+        ProvideLocalAssets(colors = colors, typography = Typography()) {
+            MaterialTheme(
+                colorScheme = if (isDark) DarkColorScheme else LightColorScheme,
+                content = { Surface(content = content) }
+            )
+        }
     }
 }
 
 @Composable
 internal expect fun SystemAppearance(isDark: Boolean)
+
+object ComposeAppTheme {
+    val colors: AppColors
+        @Composable
+        get() = LocalColors.current
+
+    val typography: Typography
+        @Composable
+        get() = LocalTypography.current
+}
+
+@Composable
+private fun ProvideLocalAssets(
+    colors: AppColors,
+    typography: Typography,
+    content: @Composable () -> Unit
+) {
+
+    val colorPalette = remember { colors.copy() }
+    colorPalette.update(colors)
+    val currentDensity = LocalDensity.current
+    CompositionLocalProvider(
+        LocalColors provides colorPalette,
+        LocalTypography provides typography,
+        LocalDensity provides Density(currentDensity.density, fontScale = 1f),
+        content = content
+    )
+}

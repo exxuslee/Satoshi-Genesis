@@ -22,6 +22,8 @@ import org.haos.app.screens.ProfileScreen
 import org.haos.app.screens.SavedNewsListScreen
 import org.haos.app.screens.SearchNewsScreen
 import org.haos.app.theme.AppTheme
+import org.haos.app.ui.caption_leah
+import org.haos.app.ui.caption_red50
 
 @Composable
 internal fun App() {
@@ -33,7 +35,7 @@ internal fun App() {
                     ScreenGraph.entries.forEach { screen ->
                         BottomNavigationItem(
                             icon = { Icon(getIconForScreen(screen), contentDescription = screen.name) },
-                            label = { Text(screen.name) },
+                            label = { caption_leah(screen.name) },
                             selected = screen == selectedScreen,
                             onClick = { selectedScreen = screen },
                             modifier = Modifier.padding(4.dp)
