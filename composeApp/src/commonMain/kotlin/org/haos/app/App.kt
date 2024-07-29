@@ -8,7 +8,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.rounded.Favorite
-import androidx.compose.material.icons.rounded.FavoriteBorder
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -20,7 +19,7 @@ import cafe.adriel.voyager.navigator.Navigator
 import org.haos.app.navigations.ScreenGraph
 import org.haos.app.screens.HomeScreen
 import org.haos.app.screens.ProfileScreen
-import org.haos.app.screens.SavedNewsListScreen
+import org.haos.app.screens.SettingsScreen
 import org.haos.app.screens.SearchNewsScreen
 import org.haos.app.theme.AppTheme
 import org.haos.app.ui.caption_leah
@@ -56,7 +55,7 @@ internal fun App() = AppTheme {
                 ScreenGraph.Home -> Navigator(HomeScreen())
                 ScreenGraph.Puzzle -> Navigator(ProfileScreen())
                 ScreenGraph.Saved -> Navigator(SearchNewsScreen())
-                ScreenGraph.Settings -> Navigator(SavedNewsListScreen())
+                ScreenGraph.Settings -> Navigator(SettingsScreen())
             }
         }
     )
