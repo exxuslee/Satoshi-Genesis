@@ -130,7 +130,7 @@ internal fun AppTheme(
         ProvideLocalAssets(colors = colors, typography = Typography()) {
             MaterialTheme(
                 colorScheme = if (isDark) DarkColorScheme else LightColorScheme,
-                content = { Surface(content = content) }
+                content = content
             )
         }
     }

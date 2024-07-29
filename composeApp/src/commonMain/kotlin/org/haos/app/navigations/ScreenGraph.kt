@@ -1,8 +1,8 @@
 package org.haos.app.navigations
 
 enum class ScreenGraph {
-    News,
-    Search,
+    Home,
+    Puzzle,
     Saved,
-    Profile,
+    Settings,
 }
