@@ -7,6 +7,7 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material.icons.rounded.Favorite
 import androidx.compose.material.icons.rounded.FavoriteBorder
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.Icon
@@ -65,7 +66,7 @@ internal fun App() = AppTheme {
 private fun getIconForScreen(screen: ScreenGraph, selected: Boolean) = if (selected) when (screen) {
     ScreenGraph.Home -> vectorResource(Res.drawable.ic_account_balance_fill1)
     ScreenGraph.Puzzle -> vectorResource(Res.drawable.ic_sports_fill1)
-    ScreenGraph.Saved -> Icons.Rounded.FavoriteBorder
+    ScreenGraph.Saved -> Icons.Rounded.Favorite
     ScreenGraph.Settings -> Icons.Rounded.Settings
 } else when (screen) {
     ScreenGraph.Home -> vectorResource(Res.drawable.ic_account_balance_fill0)
