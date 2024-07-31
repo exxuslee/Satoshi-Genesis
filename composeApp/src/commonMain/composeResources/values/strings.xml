@@ -6,6 +6,6 @@
     <string name="theme">Theme</string>
     <string name="Settings">Settings</string>
     <string name="Back">Back</string>
-    <string name="BaseCurrency">BaseCurrency</string>
+    <string name="BaseCurrency">Base Currency</string>
     <string name="Language">Language</string>
 </resources>
