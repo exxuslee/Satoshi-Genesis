@@ -8,6 +8,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import org.haos.app.ui.*
@@ -15,6 +16,7 @@ import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+
 import satoshi_genesis.composeapp.generated.resources.*
 
 class SettingsScreen : Screen {
@@ -39,7 +41,7 @@ class SettingsScreen : Screen {
                             HsSettingCell(
                                 Res.string.Language,
                                 Res.drawable.ic_language,
-                                value = "language",
+                                value = Locale.current.language,
                                 onClick = {
 
                                 }
