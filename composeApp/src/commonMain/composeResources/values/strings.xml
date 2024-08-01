@@ -8,4 +8,9 @@
     <string name="Back">Back</string>
     <string name="BaseCurrency">Base Currency</string>
     <string name="Language">Language</string>
+
+    <string name="wallet">wallet</string>
+    <string name="puzzle">puzzle</string>
+    <string name="qubit">qubit</string>
+    <string name="settings">settings</string>
 </resources>

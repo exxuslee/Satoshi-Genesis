@@ -23,7 +23,7 @@ import satoshi_genesis.composeapp.generated.resources.cyclone
 import satoshi_genesis.composeapp.generated.resources.ic_cyclone
 import kotlin.run
 
-class HomeScreen : Screen {
+class WalletScreen : Screen {
     @Composable
     override fun Content() {
         Column(

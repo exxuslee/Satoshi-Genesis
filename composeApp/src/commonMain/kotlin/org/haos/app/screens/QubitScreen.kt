@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import org.haos.app.ui.title2_leah
 
-class SearchNewsScreen : Screen {
+class QubitScreen : Screen {
     @Composable
     override fun Content() {
         title2_leah(
