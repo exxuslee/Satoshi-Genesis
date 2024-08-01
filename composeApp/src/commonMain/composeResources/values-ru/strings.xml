@@ -11,6 +11,5 @@
 
     <string name="wallet">кошелек</string>
     <string name="puzzle">пазл</string>
-    <string name="qubit">кубит</string>
     <string name="settings">настройки</string>
 </resources>

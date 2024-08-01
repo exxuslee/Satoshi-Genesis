@@ -11,6 +11,5 @@
 
     <string name="wallet">wallet</string>
     <string name="puzzle">puzzle</string>
-    <string name="qubit">qubit</string>
     <string name="settings">settings</string>
 </resources>
