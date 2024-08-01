@@ -51,7 +51,6 @@ internal fun App() = AppTheme {
                         label = { caption_leah(stringResource(screen.label)) },
                         selected = screen == selectedScreen,
                         onClick = { selectedScreen = screen },
-                        modifier = Modifier.padding(4.dp)
                     )
                 }
             }
