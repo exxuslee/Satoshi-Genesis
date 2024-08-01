@@ -24,6 +24,7 @@ import satoshi_genesis.composeapp.generated.resources.*
 @Composable
 internal fun App() = AppTheme {
     var selectedScreen by remember { mutableStateOf(ScreenGraph.entries.first()) }
+
     Scaffold(
         bottomBar = {
             BottomNavigation(backgroundColor = MaterialTheme.colorScheme.surface) {
