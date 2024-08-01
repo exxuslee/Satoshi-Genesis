@@ -1,7 +1,6 @@
 package org.haos.app
 
 import androidx.compose.animation.Crossfade
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
@@ -13,8 +12,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.Navigator
 import org.haos.app.navigations.ScreenGraph
 import org.haos.app.screens.PuzzleScreen
@@ -26,11 +23,6 @@ import org.haos.app.ui.caption_leah
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.resources.vectorResource
 import satoshi_genesis.composeapp.generated.resources.*
-import satoshi_genesis.composeapp.generated.resources.Res
-import satoshi_genesis.composeapp.generated.resources.ic_account_balance_fill0
-import satoshi_genesis.composeapp.generated.resources.ic_account_balance_fill1
-import satoshi_genesis.composeapp.generated.resources.ic_sports_fill0
-import satoshi_genesis.composeapp.generated.resources.ic_sports_fill1
 
 @Composable
 internal fun App() = AppTheme {
@@ -48,7 +40,7 @@ internal fun App() = AppTheme {
                                 )
                             }
                         },
-                        label = { caption_leah(stringResource(screen.label)) },
+                        label = { caption_leah(text = stringResource(screen.label), maxLines = 1) },
                         selected = screen == selectedScreen,
                         onClick = { selectedScreen = screen },
                     )
