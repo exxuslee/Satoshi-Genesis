@@ -1,4 +1,4 @@
-package org.haos.app.screens
+package org.haos.app.screens.home
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
@@ -11,19 +11,18 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.core.annotation.ExperimentalVoyagerApi
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.transitions.ScreenTransition
+import org.haos.app.navigations.FadeTransition
 import org.haos.app.theme.LocalThemeIsDark
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.resources.vectorResource
 import satoshi_genesis.composeapp.generated.resources.*
-import satoshi_genesis.composeapp.generated.resources.IndieFlower_Regular
-import satoshi_genesis.composeapp.generated.resources.Res
-import satoshi_genesis.composeapp.generated.resources.cyclone
-import satoshi_genesis.composeapp.generated.resources.ic_cyclone
-import kotlin.run
 
-class WalletScreen : Screen {
+@OptIn(ExperimentalVoyagerApi::class)
+class HomeScreen : Screen, ScreenTransition by FadeTransition() {
     @Composable
     override fun Content() {
         Column(

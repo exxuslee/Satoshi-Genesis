@@ -1,4 +1,4 @@
-package org.haos.app.screens
+package org.haos.app.screens.puzzle
 
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.screen.Screen

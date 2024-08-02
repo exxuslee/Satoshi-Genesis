@@ -20,9 +20,14 @@ kotlin {
             implementation(compose.material)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+
             implementation(libs.voyager.navigator)
+            implementation(libs.voyager.screenModel)
+            implementation(libs.voyager.transitions)
+
             implementation(libs.napier)
             implementation(libs.kotlinx.coroutines.core)
+
         }
 
         commonTest.dependencies {

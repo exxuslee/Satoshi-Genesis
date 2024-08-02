@@ -7,5 +7,5 @@ import satoshi_genesis.composeapp.generated.resources.settings
 import satoshi_genesis.composeapp.generated.resources.wallet
 
 enum class ScreenGraph(val label: StringResource) {
-    Wallet(Res.string.wallet), Puzzle(Res.string.puzzle), Settings(Res.string.settings),
+    Home(Res.string.wallet), Puzzle(Res.string.puzzle), Wallet(Res.string.settings),
 }
