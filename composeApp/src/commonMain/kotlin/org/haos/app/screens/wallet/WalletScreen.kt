@@ -19,7 +19,6 @@ class WalletScreen : Screen , ScreenTransition by SlideTransition() {
         val viewState by screenModel.viewStates().collectAsState()
         val viewAction by screenModel.viewActions().collectAsState(null)
 
-
         WalletView(viewState = viewState) { event ->
             screenModel.obtainEvent(event)
         }
