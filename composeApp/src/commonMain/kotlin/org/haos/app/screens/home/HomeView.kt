@@ -2,6 +2,7 @@ package org.haos.app.screens.home
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -14,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import org.haos.app.screens.home.models.HomeEvent
 import org.haos.app.screens.home.models.HomeViewState
 import org.haos.app.theme.AppTheme
+import org.haos.app.theme.ComposeAppTheme
 import org.haos.app.theme.LocalThemeIsDark
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.stringResource
@@ -30,7 +32,7 @@ fun HomeView(
         modifier = Modifier
             .fillMaxSize()
             .windowInsetsPadding(WindowInsets.safeDrawing)
-            .padding(16.dp),
+            .padding(16.dp).background(ComposeAppTheme.colors.greenD),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(

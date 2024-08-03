@@ -7,10 +7,10 @@ import cafe.adriel.voyager.core.annotation.ExperimentalVoyagerApi
 import cafe.adriel.voyager.core.model.rememberScreenModel
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.transitions.ScreenTransition
-import org.haos.app.navigations.FadeTransition
+import org.haos.app.navigations.SlideTransition
 
 @OptIn(ExperimentalVoyagerApi::class)
-class HomeScreen : Screen, ScreenTransition by FadeTransition() {
+class HomeScreen : Screen, ScreenTransition by SlideTransition() {
     @Composable
     override fun Content() {
         val screenModel = rememberScreenModel { HomeScreenModel() }

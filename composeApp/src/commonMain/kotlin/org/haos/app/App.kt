@@ -11,6 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
 import cafe.adriel.voyager.navigator.Navigator
+import cafe.adriel.voyager.transitions.SlideTransition
 import org.haos.app.navigations.ScreenGraph
 import org.haos.app.screens.home.HomeScreen
 import org.haos.app.screens.puzzle.PuzzleScreen

@@ -6,12 +6,14 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.unit.dp
 import org.haos.app.screens.wallet.models.WalletEvent
 import org.haos.app.screens.wallet.models.WalletViewState
 import org.haos.app.theme.AppTheme
+import org.haos.app.theme.ComposeAppTheme
 import org.haos.app.ui.*
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
@@ -25,7 +27,10 @@ import satoshi_genesis.composeapp.generated.resources.*
 fun WalletView(
     viewState: WalletViewState, eventHandler: (WalletEvent) -> Unit
 ) {
-    Surface {
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = ComposeAppTheme.colors.andy
+    ) {
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
             AppBar(title = stringResource(Res.string.Settings))
             Spacer(modifier = Modifier.height(12.dp))
@@ -52,6 +57,11 @@ fun WalletView(
                     },
                 )
             )
+            VSpacer(32.dp)
+            HSSectionRounded{
+                headline2_leah(text = "2")
+            }
+
         }
     }
 }
