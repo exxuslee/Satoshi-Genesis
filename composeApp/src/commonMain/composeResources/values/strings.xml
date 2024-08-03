@@ -10,6 +10,6 @@
     <string name="Language">Language</string>
 
     <string name="wallet">wallet</string>
-    <string name="puzzle">puzzle</string>
-    <string name="settings">settings</string>
+    <string name="key">key</string>
+    <string name="home">home</string>
 </resources>

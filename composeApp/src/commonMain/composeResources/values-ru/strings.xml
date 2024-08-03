@@ -10,6 +10,6 @@
     <string name="Language">Язык</string>
 
     <string name="wallet">кошелек</string>
-    <string name="puzzle">пазл</string>
-    <string name="settings">настройки</string>
+    <string name="key">ключ</string>
+    <string name="home">главная</string>
 </resources>

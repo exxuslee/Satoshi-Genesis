@@ -11,7 +11,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
 import cafe.adriel.voyager.navigator.Navigator
-import cafe.adriel.voyager.transitions.SlideTransition
 import org.haos.app.navigations.ScreenGraph
 import org.haos.app.screens.home.HomeScreen
 import org.haos.app.screens.puzzle.PuzzleScreen
@@ -47,7 +46,7 @@ internal fun App() = AppTheme {
     }, content = {
         when (selectedScreen) {
             ScreenGraph.Home -> Navigator(HomeScreen())
-            ScreenGraph.Puzzle -> Navigator(PuzzleScreen())
+            ScreenGraph.Key -> Navigator(PuzzleScreen())
             ScreenGraph.Wallet -> Navigator(WalletScreen())
         }
     })
@@ -56,10 +55,10 @@ internal fun App() = AppTheme {
 @Composable
 private fun getIconForScreen(screen: ScreenGraph, selected: Boolean) = if (selected) when (screen) {
     ScreenGraph.Home -> Icons.Rounded.Home
-    ScreenGraph.Puzzle -> vectorResource(Res.drawable.ic_sports_fill1)
+    ScreenGraph.Key -> vectorResource(Res.drawable.ic_sports_fill1)
     ScreenGraph.Wallet -> vectorResource(Res.drawable.ic_account_balance_fill1)
 } else when (screen) {
     ScreenGraph.Home -> Icons.Outlined.Home
-    ScreenGraph.Puzzle -> vectorResource(Res.drawable.ic_sports_fill0)
+    ScreenGraph.Key -> vectorResource(Res.drawable.ic_sports_fill0)
     ScreenGraph.Wallet -> vectorResource(Res.drawable.ic_account_balance_fill0)
 }
