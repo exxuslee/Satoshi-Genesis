@@ -13,7 +13,7 @@ import androidx.compose.runtime.*
 import cafe.adriel.voyager.navigator.Navigator
 import org.haos.app.navigations.ScreenGraph
 import org.haos.app.screens.home.HomeScreen
-import org.haos.app.screens.puzzle.PuzzleScreen
+import org.haos.app.screens.key.KeyScreen
 import org.haos.app.screens.wallet.WalletScreen
 import org.haos.app.theme.AppTheme
 import org.haos.app.ui.caption_leah
@@ -46,7 +46,7 @@ internal fun App() = AppTheme {
     }, content = {
         when (selectedScreen) {
             ScreenGraph.Home -> Navigator(HomeScreen())
-            ScreenGraph.Key -> Navigator(PuzzleScreen())
+            ScreenGraph.Key -> Navigator(KeyScreen())
             ScreenGraph.Wallet -> Navigator(WalletScreen())
         }
     })

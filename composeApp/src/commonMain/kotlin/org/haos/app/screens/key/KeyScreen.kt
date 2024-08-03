@@ -1,7 +1,6 @@
-package org.haos.app.screens.puzzle
+package org.haos.app.screens.key
 
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -12,7 +11,7 @@ import org.haos.app.navigations.SlideTransition
 import org.haos.app.theme.ComposeAppTheme
 
 @OptIn(ExperimentalVoyagerApi::class)
-class PuzzleScreen : Screen, ScreenTransition by SlideTransition() {
+class KeyScreen : Screen, ScreenTransition by SlideTransition() {
     @Composable
     override fun Content() {
         Surface(
