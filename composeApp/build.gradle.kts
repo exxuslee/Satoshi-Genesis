@@ -4,7 +4,10 @@ plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.compose)
+    alias(libs.plugins.buildConfig)
 }
+
+version = "0.0.1"
 
 kotlin {
     js {
@@ -32,8 +35,7 @@ kotlin {
 
         commonTest.dependencies {
             implementation(kotlin("test"))
-            @OptIn(ExperimentalComposeLibrary::class)
-            implementation(compose.uiTest)
+            @OptIn(ExperimentalComposeLibrary::class) implementation(compose.uiTest)
             implementation(libs.kotlinx.coroutines.test)
         }
 
@@ -44,6 +46,18 @@ kotlin {
     }
 }
 
-compose.experimental {
-    web.application {}
+buildConfig {
+    buildConfigField("APP_NAME", project.name)
+    buildConfigField("APP_VERSION", provider { "\"${project.version}\"" })
+//    buildConfigField("APP_SECRET", "Z3JhZGxlLWphdmEtYnVpbGRjb25maWctcGx1Z2lu")
+//    buildConfigField<String>("OPTIONAL", null)
+//    buildConfigField("BUILD_TIME", System.currentTimeMillis())
+//    buildConfigField("FEATURE_ENABLED", true)
+//    buildConfigField("MAGIC_NUMBERS", intArrayOf(1, 2, 3, 4))
+//    buildConfigField("STRING_LIST", arrayOf("a", "b", "c"))
+//    buildConfigField("MAP", mapOf("a" to 1, "b" to 2))
+//    buildConfigField("FILE", File("aFile"))
+//    buildConfigField("URI", uri("https://example.io"))
+//    buildConfigField("com.github.gmazzo.buildconfig.demos.kts.SomeData", "DATA", "SomeData(\"a\", 1)")
+
 }
