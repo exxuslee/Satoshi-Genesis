@@ -9,7 +9,10 @@
     <string name="BaseCurrency">Base Currency</string>
     <string name="Language">Language</string>
 
-    <string name="wallet">wallet</string>
-    <string name="key">key</string>
-    <string name="home">home</string>
+    <string name="wallet">Wallet</string>
+    <string name="key">Key</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="invite_friends">Invite friends</string>
+    <string name="election_history">Election history</string>
 </resources>
