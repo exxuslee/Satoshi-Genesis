@@ -287,7 +287,7 @@ fun CellSingleLineClear(
 @Composable
 fun RowUniversal(
     modifier: Modifier = Modifier,
-    verticalPadding: Dp = 12.dp,
+    verticalPadding: Dp = 8.dp,
     verticalAlignment: Alignment.Vertical = Alignment.CenterVertically,
     horizontalArrangement: Arrangement.Horizontal = Arrangement.Start,
     onClick: (() -> Unit)? = null,

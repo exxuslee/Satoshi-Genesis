@@ -21,7 +21,6 @@ class AppColors(
     purple: Color,
     raina: Color,
     andy: Color,
-    exchange_leah: Color,
     oz: Color
 ) {
 
@@ -85,8 +84,6 @@ class AppColors(
         private set
     var andy by mutableStateOf(andy)
         private set
-    var exchange_leah by mutableStateOf(exchange_leah)
-        private set
 
     var oz by mutableStateOf(oz)
         private set
@@ -105,7 +102,6 @@ class AppColors(
         purple = other.purple
         raina = other.raina
         andy = other.andy
-        exchange_leah=other.exchange_leah
         oz=other.oz
     }
 
@@ -123,7 +119,6 @@ class AppColors(
         purple = purple,
         raina = raina,
         andy = andy,
-        exchange_leah=exchange_leah,
         oz=oz,
     )
 }

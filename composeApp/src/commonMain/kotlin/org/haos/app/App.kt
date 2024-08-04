@@ -1,6 +1,5 @@
 package org.haos.app
 
-import androidx.compose.animation.Crossfade
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
@@ -16,7 +15,8 @@ import org.haos.app.screens.home.HomeScreen
 import org.haos.app.screens.key.KeyScreen
 import org.haos.app.screens.wallet.WalletScreen
 import org.haos.app.theme.AppTheme
-import org.haos.app.ui.caption_leah
+import org.haos.app.theme.ComposeAppTheme
+import org.haos.app.ui.caption_tyler
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.resources.vectorResource
 import satoshi_genesis.composeapp.generated.resources.*
@@ -26,18 +26,23 @@ internal fun App() = AppTheme {
     var selectedScreen by remember { mutableStateOf(ScreenGraph.entries.first()) }
 
     Scaffold(bottomBar = {
-        BottomNavigation(backgroundColor = MaterialTheme.colorScheme.surface) {
+        BottomNavigation(backgroundColor = MaterialTheme.colorScheme.scrim) {
             ScreenGraph.entries.forEach { screen ->
+                val icon = when (screen) {
+                    ScreenGraph.Home -> Icons.Rounded.Home to Icons.Outlined.Home
+                    ScreenGraph.Key -> vectorResource(Res.drawable.ic_sports_fill1) to vectorResource(Res.drawable.ic_sports_fill0)
+                    ScreenGraph.Wallet -> vectorResource(Res.drawable.ic_account_balance_fill1) to vectorResource(Res.drawable.ic_account_balance_fill0)
+                }
+
                 BottomNavigationItem(
                     icon = {
-                        Crossfade(targetState = selectedScreen == screen) { isSelected ->
-                            Icon(
-                                getIconForScreen(screen, isSelected),
-                                contentDescription = screen.name,
-                            )
-                        }
+                        Icon(
+                            if (selectedScreen == screen) icon.first else icon.second,
+                            contentDescription = screen.name,
+                            tint = ComposeAppTheme.colors.tyler
+                        )
                     },
-                    label = { caption_leah(text = stringResource(screen.label), maxLines = 1) },
+                    label = { caption_tyler(text = stringResource(screen.label), maxLines = 1) },
                     selected = screen == selectedScreen,
                     onClick = { selectedScreen = screen },
                 )
@@ -50,15 +55,4 @@ internal fun App() = AppTheme {
             ScreenGraph.Wallet -> Navigator(WalletScreen())
         }
     })
-}
-
-@Composable
-private fun getIconForScreen(screen: ScreenGraph, selected: Boolean) = if (selected) when (screen) {
-    ScreenGraph.Home -> Icons.Rounded.Home
-    ScreenGraph.Key -> vectorResource(Res.drawable.ic_sports_fill1)
-    ScreenGraph.Wallet -> vectorResource(Res.drawable.ic_account_balance_fill1)
-} else when (screen) {
-    ScreenGraph.Home -> Icons.Outlined.Home
-    ScreenGraph.Key -> vectorResource(Res.drawable.ic_sports_fill0)
-    ScreenGraph.Wallet -> vectorResource(Res.drawable.ic_account_balance_fill0)
 }

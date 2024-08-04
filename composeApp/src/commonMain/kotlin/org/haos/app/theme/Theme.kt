@@ -1,13 +1,10 @@
 package org.haos.app.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.Colors
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.*
-import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
@@ -92,7 +89,6 @@ val lightPalette = AppColors(
     purple = PurpleL,
     raina = White50,
     andy = Steel20,
-    exchange_leah = Steel30,
     oz = Dark,
 )
 
@@ -110,7 +106,6 @@ val darkPalette = AppColors(
     purple = PurpleD,
     raina = Steel10,
     andy = Black50,
-    exchange_leah = Grey50,
     oz = Light,
 )
 

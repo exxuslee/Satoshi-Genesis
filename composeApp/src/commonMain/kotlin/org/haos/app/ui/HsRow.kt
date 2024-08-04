@@ -7,39 +7,34 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import org.haos.app.theme.ComposeAppTheme
 import org.jetbrains.compose.resources.DrawableResource
-import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.resources.stringResource
 import satoshi_genesis.composeapp.generated.resources.Res
 import satoshi_genesis.composeapp.generated.resources.ic_arrow_right
 
 @Composable
-fun HsRow(title: StringResource, icon: DrawableResource, value: String? = null, onClick: () -> Unit) {
+fun HsRow(
+    icon: DrawableResource,
+    titleContent: @Composable () -> Unit,
+    onClick: (() -> Unit)? = null,
+    arrowRight: Boolean = false,
+    valueContent: @Composable () -> Unit,
+) {
     RowUniversal(modifier = Modifier.padding(horizontal = 12.dp), onClick = onClick) {
         Image(
             modifier = Modifier.size(30.dp),
             painter = painterResource(icon),
-            contentDescription = null
+            contentDescription = null,
+            colorFilter = ColorFilter.tint(ComposeAppTheme.colors.tyler),
         )
-        headline2_leah(
-            text = stringResource(title),
-            maxLines = 1,
-            modifier = Modifier.padding(horizontal = 12.dp)
-        )
+        titleContent()
         Spacer(Modifier.weight(1f))
-
-        if (value != null) {
-            subhead1_grey(
-                text = value,
-                maxLines = 1,
-                modifier = Modifier.padding(horizontal = 8.dp)
-            )
-        }
-
-        Image(
+        valueContent()
+        if (arrowRight) Image(
             modifier = Modifier.size(20.dp),
             painter = painterResource(Res.drawable.ic_arrow_right),
             contentDescription = null,
@@ -48,28 +43,25 @@ fun HsRow(title: StringResource, icon: DrawableResource, value: String? = null, 
 }
 
 @Composable
-fun HsRow(title: StringResource, icon: ImageVector, value: String? = null, onClick: () -> Unit) {
+fun HsRow(
+    icon: ImageVector,
+    titleContent: @Composable () -> Unit,
+    onClick: (() -> Unit)? = null,
+    arrowRight: Boolean = false,
+    valueContent: (@Composable () -> Unit)? = null,
+) {
     RowUniversal(modifier = Modifier.padding(horizontal = 12.dp), onClick = onClick) {
-        Icon(icon,
+        Icon(
+            icon,
             modifier = Modifier.size(30.dp),
-            contentDescription = null
+            contentDescription = null,
+            tint = ComposeAppTheme.colors.tyler
         )
-        headline2_leah(
-            text = stringResource(title),
-            maxLines = 1,
-            modifier = Modifier.padding(horizontal = 12.dp)
-        )
+        titleContent()
         Spacer(Modifier.weight(1f))
+        if (valueContent != null) valueContent()
 
-        if (value != null) {
-            subhead1_grey(
-                text = value,
-                maxLines = 1,
-                modifier = Modifier.padding(horizontal = 8.dp)
-            )
-        }
-
-        Image(
+        if (arrowRight) Image(
             modifier = Modifier.size(20.dp),
             painter = painterResource(Res.drawable.ic_arrow_right),
             contentDescription = null,

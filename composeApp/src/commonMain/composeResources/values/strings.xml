@@ -15,4 +15,11 @@
     <string name="profile">Profile</string>
     <string name="invite_friends">Invite friends</string>
     <string name="election_history">Election history</string>
+    <string name="disable">Disable</string>
+    <string name="invite">Invite</string>
+    <string name="about_game">About game</string>
+    <string name="game_rules">Game rules</string>
+    <string name="how_are_the_prizes_distributed">How are the prizes distributed</string>
+    <string name="community">Community</string>
+    <string name="chat">Chat</string>
 </resources>

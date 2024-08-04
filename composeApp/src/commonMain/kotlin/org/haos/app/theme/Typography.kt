@@ -2,22 +2,20 @@ package org.haos.app.theme
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 
 @Immutable
 class Typography internal constructor(
     val title1: TextStyle,
     val title2: TextStyle,
-    val title2R: TextStyle,
     val title3: TextStyle,
     val headline1: TextStyle,
     val headline2: TextStyle,
+    val headline3: TextStyle,
     val body: TextStyle,
     val bodySmall: TextStyle,
     val bodyItalic: TextStyle,
@@ -35,17 +33,12 @@ class Typography internal constructor(
         defaultFontFamily: FontFamily = FontFamily.Default,
         title1: TextStyle = TextStyle(
             fontWeight = FontWeight.Bold,
-            fontSize = 38.sp,
+            fontSize = 32.sp,
             letterSpacing = 0.sp,
         ),
         title2: TextStyle = TextStyle(
             fontWeight = FontWeight.Bold,
-            fontSize = 32.sp,
-            letterSpacing = 0.sp,
-        ),
-        title2R: TextStyle = TextStyle(
-            fontWeight = FontWeight.Normal,
-            fontSize = 32.sp,
+            fontSize = 28.sp,
             letterSpacing = 0.sp,
         ),
         title3: TextStyle = TextStyle(
@@ -59,10 +52,16 @@ class Typography internal constructor(
             letterSpacing = 0.sp,
         ),
         headline2: TextStyle = TextStyle(
+            fontWeight = FontWeight.Bold,
+            fontSize = 16.sp,
+            letterSpacing = 0.sp,
+        ),
+        headline3: TextStyle = TextStyle(
             fontWeight = FontWeight.SemiBold,
             fontSize = 16.sp,
             letterSpacing = 0.sp,
         ),
+
         body: TextStyle = TextStyle(
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp,
@@ -124,10 +123,10 @@ class Typography internal constructor(
     ) : this(
         title1 = title1.withFontFamily(defaultFontFamily),
         title2 = title2.withFontFamily(defaultFontFamily),
-        title2R = title2R.withFontFamily(defaultFontFamily),
         title3 = title3.withFontFamily(defaultFontFamily),
         headline1 = headline1.withFontFamily(defaultFontFamily),
         headline2 = headline2.withFontFamily(defaultFontFamily),
+        headline3 = headline3.withFontFamily(defaultFontFamily),
         body = body.withFontFamily(defaultFontFamily),
         bodySmall = bodySmall.withFontFamily(defaultFontFamily),
         bodyItalic = bodyItalic.withFontFamily(defaultFontFamily),
