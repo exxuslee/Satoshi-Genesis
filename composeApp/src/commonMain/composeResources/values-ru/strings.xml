@@ -7,7 +7,9 @@
     <string name="Settings">Настройки</string>
     <string name="Back">Назад</string>
     <string name="BaseCurrency">Базовая валюта</string>
-    <string name="Language">Язык</string>
+    <string name="language">Язык</string>
+    <string name="en">Английский</string>
+    <string name="ru">Русский</string>
 
     <string name="wallet">Кошелек</string>
     <string name="key">Ключ</string>
@@ -22,5 +24,4 @@
     <string name="how_are_the_prizes_distributed">Как распределяются призы</string>
     <string name="community">Коммьюнити</string>
     <string name="chat">Чат</string>
-
 </resources>

@@ -9,12 +9,12 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.transitions.ScreenTransition
 import org.haos.app.navigations.SlideTransition
 
-
 @OptIn(ExperimentalVoyagerApi::class)
 class WalletScreen : Screen , ScreenTransition by SlideTransition() {
 
     @Composable
     override fun Content() {
+
         val screenModel = rememberScreenModel { WalletScreenModel() }
         val viewState by screenModel.viewStates().collectAsState()
         val viewAction by screenModel.viewActions().collectAsState(null)

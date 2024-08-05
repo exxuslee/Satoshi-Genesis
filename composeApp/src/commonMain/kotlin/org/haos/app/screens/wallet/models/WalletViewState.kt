@@ -1,3 +1,5 @@
 package org.haos.app.screens.wallet.models
 
-class WalletViewState
+data class WalletViewState(
+    val locale: String = ""
+)

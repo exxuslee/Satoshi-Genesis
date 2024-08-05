@@ -7,6 +7,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.unit.Density
 
 private val LightColorScheme = lightColorScheme(
@@ -73,8 +74,6 @@ private val DarkColorScheme = darkColorScheme(
     scrim = md_theme_dark_scrim,
 )
 
-internal val LocalThemeIsDark = compositionLocalOf { mutableStateOf(true) }
-
 val lightPalette = AppColors(
     jacob = BlueL,
     remus = GreenL,
@@ -109,30 +108,47 @@ val darkPalette = AppColors(
     oz = Light,
 )
 
+internal val LocalThemeIsDark = compositionLocalOf { mutableStateOf(true) }
+internal val LocalLocale = compositionLocalOf { mutableStateOf(Locale.current )}
+
 @Composable
 internal fun AppTheme(
-    content: @Composable() () -> Unit
+    content: @Composable () -> Unit
 ) {
     val systemIsDark = isSystemInDarkTheme()
     val isDarkState = remember { mutableStateOf(systemIsDark) }
-    CompositionLocalProvider(
-        LocalThemeIsDark provides isDarkState
-    ) {
-        val isDark by isDarkState
-        SystemAppearance(!isDark)
-        val colors = if (isDark) darkPalette else lightPalette
+    val isDark by isDarkState
+    SystemAppearance(!isDark)
+    val colors = if (isDark) darkPalette else lightPalette
 
-        ProvideLocalAssets(colors = colors, typography = Typography()) {
-            MaterialTheme(
-                colorScheme = if (isDark) DarkColorScheme else LightColorScheme,
-                content = content
-            )
-        }
+    val colorPalette = remember { colors.copy() }
+    colorPalette.update(colors)
+    val currentDensity = LocalDensity.current
+
+    val localeCurrent = Locale.current
+    val localeState = remember { mutableStateOf(localeCurrent) }
+    val locale by localeState
+    SystemAppearance(locale)
+
+    CompositionLocalProvider(
+        LocalThemeIsDark provides isDarkState,
+        LocalColors provides colorPalette,
+        LocalTypography provides Typography(),
+        LocalDensity provides Density(currentDensity.density, fontScale = 1f),
+        LocalLocale provides localeState,
+    ) {
+        MaterialTheme(
+            colorScheme = if (isDark) DarkColorScheme else LightColorScheme,
+            content = content
+        )
     }
 }
 
 @Composable
 internal expect fun SystemAppearance(isDark: Boolean)
+
+@Composable
+internal expect fun SystemAppearance(locale: Locale)
 
 object ComposeAppTheme {
     val colors: AppColors
@@ -142,22 +158,4 @@ object ComposeAppTheme {
     val typography: Typography
         @Composable
         get() = LocalTypography.current
-}
-
-@Composable
-private fun ProvideLocalAssets(
-    colors: AppColors,
-    typography: Typography,
-    content: @Composable () -> Unit
-) {
-
-    val colorPalette = remember { colors.copy() }
-    colorPalette.update(colors)
-    val currentDensity = LocalDensity.current
-    CompositionLocalProvider(
-        LocalColors provides colorPalette,
-        LocalTypography provides typography,
-        LocalDensity provides Density(currentDensity.density, fontScale = 1f),
-        content = content
-    )
 }

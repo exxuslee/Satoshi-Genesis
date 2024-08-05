@@ -1,7 +1,6 @@
 version:0
 string|Back|0J3QsNC30LDQtA==
 string|BaseCurrency|0JHQsNC30L7QstCw0Y8g0LLQsNC70Y7RgtCw
-string|Language|0K/Qt9GL0Lo=
 string|Settings|0J3QsNGB0YLRgNC+0LnQutC4
 string|about_game|0J7QsSDQuNCz0YDQtQ==
 string|chat|0KfQsNGC
@@ -9,15 +8,18 @@ string|community|0JrQvtC80LzRjNGO0L3QuNGC0Lg=
 string|cyclone|0KbQuNC60LvQvtC9
 string|disable|0J7RgtC60LvRjtGH0LjRgtGM
 string|election_history|0JjRgdGC0L7RgNC40Y8g0LLRi9Cx0L7RgNCw
+string|en|0JDQvdCz0LvQuNC50YHQutC40Lk=
 string|game_rules|0J/RgNCw0LLQuNC70LAg0LjQs9GA0Ys=
 string|home|0JPQu9Cw0LLQvdCw0Y8=
 string|how_are_the_prizes_distributed|0JrQsNC6INGA0LDRgdC/0YDQtdC00LXQu9GP0Y7RgtGB0Y8g0L/RgNC40LfRiw==
 string|invite_friends|0J/QvtC30LLQsNGC0Ywg0LTRgNGD0LfQtdC5
 string|invite|0J/RgNC40LPQu9Cw0YHQuNGC0Yw=
 string|key|0JrQu9GO0Yc=
+string|language|0K/Qt9GL0Lo=
 string|open_github|0J7RgtC60YDRi9GC0Yw=
 string|profile|0J/RgNC+0YTQuNC70Yw=
 string|run|0J/Rg9GB0Lo=
+string|ru|0KDRg9GB0YHQutC40Lk=
 string|stop|0KHRgtC+0L8=
 string|theme|0KLQtdC80LA=
 string|wallet|0JrQvtGI0LXQu9C10Lo=

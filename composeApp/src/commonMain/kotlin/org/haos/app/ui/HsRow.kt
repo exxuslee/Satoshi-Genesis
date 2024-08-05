@@ -8,6 +8,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import org.haos.app.theme.ComposeAppTheme
@@ -45,6 +46,33 @@ fun HsRow(
 @Composable
 fun HsRow(
     icon: ImageVector,
+    titleContent: @Composable () -> Unit,
+    onClick: (() -> Unit)? = null,
+    arrowRight: Boolean = false,
+    valueContent: (@Composable () -> Unit)? = null,
+) {
+    RowUniversal(modifier = Modifier.padding(horizontal = 12.dp), onClick = onClick) {
+        Icon(
+            icon,
+            modifier = Modifier.size(30.dp),
+            contentDescription = null,
+            tint = ComposeAppTheme.colors.tyler
+        )
+        titleContent()
+        Spacer(Modifier.weight(1f))
+        if (valueContent != null) valueContent()
+
+        if (arrowRight) Image(
+            modifier = Modifier.size(20.dp),
+            painter = painterResource(Res.drawable.ic_arrow_right),
+            contentDescription = null,
+        )
+    }
+}
+
+@Composable
+fun HsRow(
+    icon: Painter,
     titleContent: @Composable () -> Unit,
     onClick: (() -> Unit)? = null,
     arrowRight: Boolean = false,

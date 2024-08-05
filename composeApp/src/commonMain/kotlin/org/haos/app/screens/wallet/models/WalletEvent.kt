@@ -1,3 +1,5 @@
 package org.haos.app.screens.wallet.models
 
-class WalletEvent
+sealed class WalletEvent {
+    data class Locale(val locale: String) : WalletEvent()
+}

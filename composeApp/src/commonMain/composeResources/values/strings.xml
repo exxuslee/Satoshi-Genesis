@@ -7,7 +7,9 @@
     <string name="Settings">Settings</string>
     <string name="Back">Back</string>
     <string name="BaseCurrency">Base Currency</string>
-    <string name="Language">Language</string>
+    <string name="language">Language</string>
+    <string name="en">English</string>
+    <string name="ru">Russian</string>
 
     <string name="wallet">Wallet</string>
     <string name="key">Key</string>
