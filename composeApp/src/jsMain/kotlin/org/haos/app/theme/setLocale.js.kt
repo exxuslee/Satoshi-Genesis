@@ -7,4 +7,5 @@ actual fun setLocale(language: String) {
         else -> "en-US"
     }
     js("document.documentElement.lang = locale")
+    println("Locale set to $locale for JS")
 }
