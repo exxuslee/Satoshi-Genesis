@@ -6,7 +6,6 @@ import kotlinx.browser.document
 
 @Composable
 internal actual fun SystemAppearance(isDark: Boolean) {
-    println(isDark)
 }
 
 @Composable

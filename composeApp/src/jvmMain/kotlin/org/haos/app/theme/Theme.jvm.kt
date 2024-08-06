@@ -8,5 +8,5 @@ internal actual fun SystemAppearance(isDark: Boolean) {
 }
 
 @Composable
-internal actual fun SystemAppearance(locale: Locale) {
+internal actual fun SystemLocale(locale: Locale) {
 }

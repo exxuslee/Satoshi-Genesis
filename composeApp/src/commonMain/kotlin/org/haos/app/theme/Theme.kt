@@ -118,17 +118,19 @@ internal fun AppTheme(
     val systemIsDark = isSystemInDarkTheme()
     val isDarkState = remember { mutableStateOf(systemIsDark) }
     val isDark by isDarkState
+    println("1")
     SystemAppearance(!isDark)
     val colors = if (isDark) darkPalette else lightPalette
-
-    val colorPalette = remember { colors.copy() }
-    colorPalette.update(colors)
-    val currentDensity = LocalDensity.current
 
     val localeCurrent = Locale.current
     val localeState = remember { mutableStateOf(localeCurrent) }
     val locale by localeState
-    SystemAppearance(locale)
+    println("2")
+    SystemLocale(locale)
+
+    val colorPalette = remember { colors.copy() }
+    colorPalette.update(colors)
+    val currentDensity = LocalDensity.current
 
     CompositionLocalProvider(
         LocalThemeIsDark provides isDarkState,
@@ -148,7 +150,7 @@ internal fun AppTheme(
 internal expect fun SystemAppearance(isDark: Boolean)
 
 @Composable
-internal expect fun SystemAppearance(locale: Locale)
+internal expect fun SystemLocale(locale: Locale)
 
 object ComposeAppTheme {
     val colors: AppColors

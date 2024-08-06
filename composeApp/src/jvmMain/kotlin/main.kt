@@ -6,6 +6,7 @@ import org.haos.app.App
 import java.awt.Dimension
 
 fun main() = application {
+
     Window(
         title = "desktop",
         state = rememberWindowState(width = 360.dp, height = 640.dp),

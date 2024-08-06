@@ -16,7 +16,6 @@ import org.haos.app.screens.home.models.HomeEvent
 import org.haos.app.screens.home.models.HomeViewState
 import org.haos.app.theme.AppTheme
 import org.haos.app.theme.ComposeAppTheme
-import org.haos.app.theme.LocalThemeIsDark
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.resources.vectorResource
@@ -75,21 +74,7 @@ fun HomeView(
             }
         )
 
-        var isDark by LocalThemeIsDark.current
-        val icon = remember(isDark) {
-            if (isDark) Res.drawable.ic_light_mode
-            else Res.drawable.ic_dark_mode
-        }
 
-        ElevatedButton(
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp).widthIn(min = 200.dp),
-            onClick = { isDark = !isDark },
-            content = {
-                Icon(vectorResource(icon), contentDescription = null)
-                Spacer(Modifier.size(ButtonDefaults.IconSpacing))
-                Text(stringResource(Res.string.theme))
-            }
-        )
 
         TextButton(
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp).widthIn(min = 200.dp),

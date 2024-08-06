@@ -3,10 +3,7 @@ package org.haos.app.screens.wallet
 import Satoshi_Genesis.composeApp.BuildConfig
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -16,11 +13,14 @@ import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -30,9 +30,11 @@ import org.haos.app.screens.wallet.models.WalletEvent
 import org.haos.app.screens.wallet.models.WalletViewState
 import org.haos.app.theme.AppTheme
 import org.haos.app.theme.LocalLocale
+import org.haos.app.theme.LocalThemeIsDark
 import org.haos.app.ui.*
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.resources.vectorResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import satoshi_genesis.composeapp.generated.resources.*
 
@@ -52,13 +54,27 @@ fun WalletView(
     ) {
         val scrollState = rememberScrollState()
         Column(modifier = Modifier.verticalScroll(scrollState)) {
-            RowUniversal(horizontalArrangement = Arrangement.Center) {
+            Box(modifier = Modifier.fillMaxWidth()) {
                 Image(
                     painter = painterResource(Res.drawable.avatar),
                     contentDescription = "avatar",
-                    modifier = Modifier.size(128.dp)
+                    modifier = Modifier.size(128.dp).align(Alignment.Center)
                 )
+                var isDark by LocalThemeIsDark.current
+                val icon = remember(isDark) {
+                    if (isDark) Res.drawable.ic_light_mode
+                    else Res.drawable.ic_dark_mode
+                }
+
+                HsIconButton(
+                    modifier = Modifier.align(Alignment.TopEnd).padding(vertical = 12.dp),
+                    onClick = {
+                    isDark = !isDark
+                }){
+                    Icon(vectorResource(icon), contentDescription = null)
+                }
             }
+
             RowUniversal(
                 verticalPadding = 0.dp, horizontalArrangement = Arrangement.Center
             ) {

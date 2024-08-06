@@ -18,6 +18,11 @@ kotlin {
         binaries.executable()
     }
 
+    wasmJs {
+        browser()
+        binaries.executable()
+    }
+
     sourceSets {
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -31,8 +36,10 @@ kotlin {
             implementation(libs.voyager.screenModel)
             implementation(libs.voyager.transitions)
 
-            implementation(libs.napier)
             implementation(libs.kotlinx.coroutines.core)
+
+//            implementation(libs.multiplatformSettings)
+//            implementation(libs.napier)
 
         }
 
