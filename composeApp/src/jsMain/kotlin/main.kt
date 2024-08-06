@@ -6,7 +6,7 @@ import org.jetbrains.skiko.wasm.onWasmReady
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
     onWasmReady {
-        CanvasBasedWindow("Satoshi Genesis", "ComposeTarget") {
+        CanvasBasedWindow("Satoshi Genesis") {
             App()
         }
     }

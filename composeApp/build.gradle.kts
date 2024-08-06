@@ -8,17 +8,12 @@ plugins {
     alias(libs.plugins.buildConfig)
 }
 
-version = "0.0.2"
+version = "0.0.3"
 
 kotlin {
     jvm()
 
     js {
-        browser()
-        binaries.executable()
-    }
-
-    wasmJs {
         browser()
         binaries.executable()
     }
