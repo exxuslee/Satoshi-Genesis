@@ -1,23 +1,31 @@
 package org.haos.app.screens.key
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import cafe.adriel.voyager.core.annotation.ExperimentalVoyagerApi
+import cafe.adriel.voyager.core.model.rememberScreenModel
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.transitions.ScreenTransition
 import org.haos.app.navigations.SlideTransition
-import org.haos.app.theme.ComposeAppTheme
 
 @OptIn(ExperimentalVoyagerApi::class)
 class KeyScreen : Screen, ScreenTransition by SlideTransition() {
+
     @Composable
     override fun Content() {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = ComposeAppTheme.colors.elenaD) {
 
+        val screenModel = rememberScreenModel { KeyScreenModel() }
+        val viewState by screenModel.viewStates().collectAsState()
+        val viewAction by screenModel.viewActions().collectAsState(null)
+
+        KeyView(viewState = viewState) { event ->
+            screenModel.obtainEvent(event)
+        }
+
+        when (viewAction) {
+            null -> {}
         }
     }
+
 }
