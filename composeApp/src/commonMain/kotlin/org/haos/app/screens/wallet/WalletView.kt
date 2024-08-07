@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.unit.dp
 import org.haos.app.screens.wallet.models.WalletEvent
@@ -100,7 +101,9 @@ fun WalletView(
                                 subhead1_grey(text = "UQB_C6…ZDro")
                             }
                         }, arrowRight = false, valueContent = {
-                            ButtonPrimaryGrey(title = stringResource(Res.string.disable), onClick = {})
+                            ButtonPrimaryGrey(
+                                modifier = Modifier.testTag("ton-connect"),
+                                title = stringResource(Res.string.disable), onClick = {})
                         })
                     },
                     {
