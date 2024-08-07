@@ -24,7 +24,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.unit.dp
 import org.haos.app.screens.wallet.models.WalletEvent
@@ -70,8 +69,8 @@ fun WalletView(
                 HsIconButton(
                     modifier = Modifier.align(Alignment.TopEnd).padding(vertical = 12.dp),
                     onClick = {
-                    isDark = !isDark
-                }){
+                        isDark = !isDark
+                    }) {
                     Icon(vectorResource(icon), contentDescription = null)
                 }
             }
@@ -98,12 +97,15 @@ fun WalletView(
                         HsRow(icon = Res.drawable.ic_account_balance_fill0, titleContent = {
                             Column(modifier = Modifier.padding(horizontal = 12.dp)) {
                                 headline2_tyler(text = stringResource(Res.string.wallet))
-                                subhead1_grey(text = "UQB_C6…ZDro")
+                                subhead1_grey(text = viewState.wallet)
                             }
                         }, arrowRight = false, valueContent = {
                             ButtonPrimaryGrey(
-                                modifier = Modifier.testTag("ton-connect"),
-                                title = stringResource(Res.string.disable), onClick = {})
+                                title = stringResource(if (viewState.wallet.isBlank()) Res.string.connect else Res.string.disable),
+                                onClick = {
+                                    if (viewState.wallet.isBlank()) eventHandler.invoke(WalletEvent.ConnectTon)
+                                    else eventHandler.invoke(WalletEvent.DisconnectTon)
+                                })
                         })
                     },
                     {

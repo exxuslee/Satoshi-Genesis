@@ -15,7 +15,12 @@ class WalletScreenModel :
                 setLocale(viewEvent.locale)
                 viewState = viewState.copy(locale = viewEvent.locale)
             }
+
+            WalletEvent.ConnectTon -> { connectTon() }
+            WalletEvent.DisconnectTon -> {}
         }
     }
 
 }
+
+internal expect fun connectTon()
