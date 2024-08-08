@@ -4,7 +4,6 @@ import org.haos.app.core.BaseScreenModel
 import org.haos.app.screens.wallet.models.WalletAction
 import org.haos.app.screens.wallet.models.WalletEvent
 import org.haos.app.screens.wallet.models.WalletViewState
-import org.haos.app.theme.setLocale
 
 
 class WalletScreenModel :
@@ -16,11 +15,15 @@ class WalletScreenModel :
                 viewState = viewState.copy(locale = viewEvent.locale)
             }
 
-            WalletEvent.ConnectTon -> { connectTon() }
+            WalletEvent.ConnectTon -> {
+                val address = connectTon()
+                println("kmp $address")
+            }
             WalletEvent.DisconnectTon -> {}
         }
     }
 
 }
 
-internal expect fun connectTon()
+internal expect fun connectTon(): String
+expect fun setLocale(language: String)
